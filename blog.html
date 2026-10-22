@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>勉強日記 | 桜釉のろくろ日記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Maru+Gothic:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sakura:#f7c9d3;
+  --sakura-deep:#e58ea3;
+  --sakura-pale:#fdeef1;
+  --clay:#a39a91;
+  --clay-deep:#6f675f;
+  --clay-dark:#3f3a35;
+  --bg:#f3ecea;
+  --surface:#fbf7f6;
+  --text:#3f3a35;
+  --muted:#6f675f;
+  --line:#d9cfca;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --sakura:#c98a9a;--sakura-deep:#e9a3b4;--sakura-pale:#3a2b30;
+    --clay:#8a8279;--clay-deep:#b9b0a7;--clay-dark:#e7e0da;
+    --bg:#2a2623;--surface:#332e2b;--text:#eee8e3;--muted:#b9b0a7;--line:#4a443f;
+  }
+}
+:root[data-theme="dark"]{
+  --sakura:#c98a9a;--sakura-deep:#e9a3b4;--sakura-pale:#3a2b30;
+  --clay:#8a8279;--clay-deep:#b9b0a7;--clay-dark:#e7e0da;
+  --bg:#2a2623;--surface:#332e2b;--text:#eee8e3;--muted:#b9b0a7;--line:#4a443f;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Yu Gothic",sans-serif;line-height:1.9;font-size:16px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--clay);z-index:10}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sakura-deep);outline-offset:3px}
+.serif{font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif}
+
+header{background:var(--clay);color:#fff;position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) header{color:var(--clay-dark);background:#4a443f}:root:not([data-theme="light"]) body::before{background:#4a443f}}
+.bar{max-width:1040px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{font-size:1.15rem;font-weight:700;text-decoration:none;letter-spacing:.06em}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:6px;flex-wrap:wrap}
+nav a{display:block;padding:6px 14px;border-radius:999px;text-decoration:none;font-size:.95rem}
+nav a:hover{background:rgba(255,255,255,.2)}
+nav a[aria-current="page"]{background:var(--sakura);color:#3f3a35}
+
+main{max-width:680px;margin:0 auto;padding:44px 20px 32px}
+h1{font-size:clamp(1.7rem,4.6vw,2.4rem);margin:0 0 8px;font-weight:700;letter-spacing:.05em}
+.lead{margin:0 0 28px;color:var(--muted)}
+
+.timeline{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.post{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--sakura-deep);border-radius:12px;padding:16px 20px}
+.post time{display:block;font-size:.85rem;color:var(--muted)}
+.post p{margin:6px 0 0}
+
+footer{text-align:center;padding:28px 20px 40px;color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="brand serif" href="index.html">桜釉のろくろ日記</a>
+    <nav aria-label="メインメニュー">
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="blog.html" aria-current="page">ブログ</a></li>
+        <li><a href="gallery.html">ギャラリー</a></li>
+        <li><a href="about.html">このサイトについて</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1 class="serif">勉強日記</h1>
+  <p class="lead">陶芸の勉強の進み具合を、日付と短い日記で残しています。新しい日記が上に並びます。</p>
+
+  <ol class="timeline">
+    <li class="post"><time datetime="2026-10-17">2026年10月17日</time><p>粘土の練り方を復習。菊練りは空気を抜くためだと知ってから、手の動きの意味がわかってきた。</p></li>
+    <li class="post"><time datetime="2026-10-14">2026年10月14日</time><p>ろくろで湯のみに挑戦。口のあたりが厚くなりすぎた。次は水を少なめにする。</p></li>
+    <li class="post"><time datetime="2026-10-10">2026年10月10日</time><p>釉薬の種類を調べた。灰釉と長石釉の違いがおもしろい。</p></li>
+    <li class="post"><time datetime="2026-10-07">2026年10月7日</time><p>素焼きと本焼きの違いを整理した。素焼きは約800度、本焼きは1200度以上と覚える。</p></li>
+    <li class="post"><time datetime="2026-10-03">2026年10月3日</time><p>手びねりでお皿を作った。縁を薄くしすぎて、乾燥中にひびが入った。乾燥はゆっくりが大事。</p></li>
+    <li class="post"><time datetime="2026-09-29">2026年9月29日</time><p>桜色の釉薬は、焼くと思ったより白っぽくなるらしい。テストピースで試してみたい。</p></li>
+    <li class="post"><time datetime="2026-09-25">2026年9月25日</time><p>陶芸の道具をそろえた。たたら板、へら、かんな、スポンジ。名前を覚えるところから。</p></li>
+  </ol>
+</main>
+
+<footer>© 桜釉のろくろ日記</footer>
+</body>
+</html>
