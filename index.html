@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>桜釉のろくろ日記 | 陶芸の勉強サイト</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Maru+Gothic:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sakura:#f7c9d3;
+  --sakura-deep:#e58ea3;
+  --sakura-pale:#fdeef1;
+  --clay:#a39a91;
+  --clay-deep:#6f675f;
+  --clay-dark:#3f3a35;
+  --bg:#f3ecea;
+  --surface:#fbf7f6;
+  --text:#3f3a35;
+  --muted:#6f675f;
+  --line:#d9cfca;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --sakura:#c98a9a;--sakura-deep:#e9a3b4;--sakura-pale:#3a2b30;
+    --clay:#8a8279;--clay-deep:#b9b0a7;--clay-dark:#e7e0da;
+    --bg:#2a2623;--surface:#332e2b;--text:#eee8e3;--muted:#b9b0a7;--line:#4a443f;
+  }
+}
+:root[data-theme="dark"]{
+  --sakura:#c98a9a;--sakura-deep:#e9a3b4;--sakura-pale:#3a2b30;
+  --clay:#8a8279;--clay-deep:#b9b0a7;--clay-dark:#e7e0da;
+  --bg:#2a2623;--surface:#332e2b;--text:#eee8e3;--muted:#b9b0a7;--line:#4a443f;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Yu Gothic",sans-serif;line-height:1.9;font-size:16px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--clay);z-index:10}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sakura-deep);outline-offset:3px}
+.serif{font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif}
+
+header{background:var(--clay);color:#fff;position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) header{color:var(--clay-dark);background:#4a443f}:root:not([data-theme="light"]) body::before{background:#4a443f}}
+.bar{max-width:1040px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{font-size:1.15rem;font-weight:700;text-decoration:none;letter-spacing:.06em}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:6px;flex-wrap:wrap}
+nav a{display:block;padding:6px 14px;border-radius:999px;text-decoration:none;font-size:.95rem}
+nav a:hover{background:rgba(255,255,255,.2)}
+nav a[aria-current="page"]{background:var(--sakura);color:#3f3a35}
+
+.hero{max-width:1040px;margin:0 auto;padding:56px 20px 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+.hero h1{font-size:clamp(2rem,5.4vw,3.4rem);line-height:1.35;margin:0 0 20px;font-weight:700;letter-spacing:.04em}
+.hero p{margin:0 0 28px;color:var(--muted);max-width:30em}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:10px 24px;border-radius:999px;text-decoration:none;font-weight:500;border:2px solid var(--clay-deep)}
+.btn.primary{background:var(--sakura);border-color:var(--sakura);color:#3f3a35}
+.btn.primary:hover{background:var(--sakura-deep);border-color:var(--sakura-deep)}
+.btn.ghost:hover{background:var(--line)}
+.wheel{width:100%;max-width:420px;justify-self:center}
+.wheel svg{width:100%;height:auto;display:block}
+@media (prefers-reduced-motion:no-preference){
+  .disc{transform-origin:210px 330px;animation:spin 14s linear infinite}
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+section{max-width:1040px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.6rem;margin:0 0 8px;font-weight:700;letter-spacing:.05em}
+.lead{margin:0 0 24px;color:var(--muted)}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.more{font-size:.95rem}
+
+.log{display:grid;gap:12px;max-width:640px}
+.post{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--sakura-deep);border-radius:10px;padding:14px 18px}
+.post time{display:block;font-size:.85rem;color:var(--muted)}
+.post p{margin:4px 0 0}
+
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tile{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.tile svg{display:block;width:100%;height:auto;background:var(--sakura-pale)}
+.tile figcaption{padding:10px 14px;font-size:.92rem;color:var(--muted)}
+
+.about{background:var(--clay);color:#fff;max-width:none;padding:0}
+.about>div{max-width:1040px;margin:0 auto;padding:44px 20px}
+.about p{max-width:36em;margin:0 0 20px}
+.about a{color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .about{background:#443e39;color:var(--text)}:root:not([data-theme="light"]) .about a{color:var(--text)}}
+footer{text-align:center;padding:28px 20px 40px;color:var(--muted);font-size:.9rem}
+
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;padding-top:36px}
+  .wheel{max-width:300px;order:-1}
+  .tiles{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="brand serif" href="index.html">桜釉のろくろ日記</a>
+    <nav aria-label="メインメニュー">
+      <ul>
+        <li><a href="index.html" aria-current="page">ホーム</a></li>
+        <li><a href="blog.html">ブログ</a></li>
+        <li><a href="gallery.html">ギャラリー</a></li>
+        <li><a href="about.html">このサイトについて</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div>
+      <h1 class="serif">土に触れて、<br>少しずつ形にする。</h1>
+      <p>陶芸の勉強の記録と、漫画やイラストを置いている小さな工房です。土のこと、釉薬のこと、ろくろで失敗したことを日記にしています。</p>
+      <div class="btns">
+        <a class="btn primary" href="blog.html">勉強日記を読む</a>
+        <a class="btn ghost" href="gallery.html">ギャラリーを見る</a>
+      </div>
+    </div>
+    <div class="wheel" role="img" aria-label="ろくろの上で回る、桜色の釉薬がかかった花瓶">
+      <svg viewBox="0 0 420 400" aria-hidden="true">
+        <ellipse cx="210" cy="340" rx="190" ry="44" fill="var(--clay-deep)" opacity=".35"/>
+        <g class="disc">
+          <ellipse cx="210" cy="330" rx="170" ry="38" fill="var(--clay)"/>
+          <ellipse cx="210" cy="324" rx="170" ry="38" fill="var(--line)"/>
+          <ellipse cx="210" cy="324" rx="120" ry="26" fill="none" stroke="var(--clay)" stroke-width="2" stroke-dasharray="6 10"/>
+        </g>
+        <path d="M168 312 C120 270 128 200 172 160 C188 146 190 128 186 96 L186 72 L234 72 L234 96 C230 128 232 146 248 160 C292 200 300 270 252 312 Z" fill="var(--clay)"/>
+        <path d="M168 312 C120 270 128 200 172 160 C188 146 190 128 186 96 L186 72 L234 72 L234 96 C230 128 232 146 248 160 C292 200 300 270 252 312 Z" fill="none" stroke="var(--clay-deep)" stroke-width="2"/>
+        <path d="M133 226 C140 190 160 172 172 160 C188 146 190 128 186 96 L186 72 L234 72 L234 96 C230 128 232 146 248 160 C260 172 280 190 287 226 C270 214 258 232 240 222 C226 214 216 244 204 222 C190 204 178 236 160 224 C150 218 142 228 133 226 Z" fill="var(--sakura)"/>
+        <ellipse cx="210" cy="72" rx="24" ry="7" fill="var(--clay-dark)" opacity=".7"/>
+        <g fill="var(--sakura-deep)">
+          <circle cx="300" cy="120" r="6"/><circle cx="96" cy="150" r="5"/><circle cx="332" cy="196" r="4"/><circle cx="72" cy="232" r="6"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <section aria-labelledby="blog-h">
+    <div class="head">
+      <h2 id="blog-h" class="serif">最近の勉強日記</h2>
+      <a class="more" href="blog.html">すべて読む</a>
+    </div>
+    <p class="lead">日付と、その日に学んだことだけを短く残しています。</p>
+    <div class="log">
+      <article class="post"><time datetime="2026-10-17">2026年10月17日</time><p>粘土の練り方を復習。菊練りは空気を抜くためだと知ってから、手の動きの意味がわかってきた。</p></article>
+      <article class="post"><time datetime="2026-10-14">2026年10月14日</time><p>ろくろで湯のみに挑戦。口のあたりが厚くなりすぎた。次は水を少なめにする。</p></article>
+      <article class="post"><time datetime="2026-10-10">2026年10月10日</time><p>釉薬の種類を調べた。灰釉と長石釉の違いがおもしろい。</p></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="gal-h">
+    <div class="head">
+      <h2 id="gal-h" class="serif">ギャラリー</h2>
+      <a class="more" href="gallery.html">もっと見る</a>
+    </div>
+    <p class="lead">漫画とイラストを置いています。（ここに作品を入れ替えます）</p>
+    <div class="tiles">
+      <figure class="tile">
+        <svg viewBox="0 0 300 200" role="img" aria-label="作品プレースホルダー：茶碗"><path d="M80 90 H220 C220 140 190 160 150 160 C110 160 80 140 80 90 Z" fill="var(--clay)"/><path d="M80 90 H220 C216 108 212 118 206 126 C180 118 120 118 94 126 C88 118 84 108 80 90 Z" fill="var(--sakura)"/><rect x="120" y="160" width="60" height="10" rx="3" fill="var(--clay-deep)"/></svg>
+        <figcaption>イラスト：茶碗の絵（仮）</figcaption>
+      </figure>
+      <figure class="tile">
+        <svg viewBox="0 0 300 200" role="img" aria-label="作品プレースホルダー：湯のみ"><path d="M105 60 H195 L188 150 C186 162 170 168 150 168 C130 168 114 162 112 150 Z" fill="var(--clay)"/><path d="M105 60 H195 L193 86 C170 94 130 94 107 86 Z" fill="var(--sakura)"/><path d="M196 84 C226 84 226 128 192 128" fill="none" stroke="var(--clay)" stroke-width="10" stroke-linecap="round"/></svg>
+        <figcaption>漫画：陶芸ことはじめ（仮）</figcaption>
+      </figure>
+      <figure class="tile">
+        <svg viewBox="0 0 300 200" role="img" aria-label="作品プレースホルダー：桜の花"><g transform="translate(150 100)" fill="var(--sakura-deep)"><ellipse rx="16" ry="34" cy="-30"/><ellipse rx="16" ry="34" cy="-30" transform="rotate(72)"/><ellipse rx="16" ry="34" cy="-30" transform="rotate(144)"/><ellipse rx="16" ry="34" cy="-30" transform="rotate(216)"/><ellipse rx="16" ry="34" cy="-30" transform="rotate(288)"/></g><circle cx="150" cy="100" r="9" fill="var(--clay-dark)"/></svg>
+        <figcaption>イラスト：桜の釉薬（仮）</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="about" aria-labelledby="about-h">
+    <div>
+      <h2 id="about-h" class="serif">このサイトについて</h2>
+      <p>陶芸を勉強しながら、その様子を日記と絵で記録しているサイトです。桜色は釉薬の淡い色、灰色は焼く前の粘土の色をイメージしています。</p>
+      <a href="about.html">くわしく見る</a>
+    </div>
+  </section>
+</main>
+
+<footer>© 桜釉のろくろ日記</footer>
+</body>
+</html>
